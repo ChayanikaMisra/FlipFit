@@ -1,4 +1,4 @@
-package com.FlipFit.models;
+package com.FlipFit.entity;
 
 import java.util.ArrayList;
 import java.util.List;

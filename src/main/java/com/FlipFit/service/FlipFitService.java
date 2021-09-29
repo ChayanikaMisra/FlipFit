@@ -1,12 +1,12 @@
-package com.FlipFit.services;
+package com.FlipFit.service;
 
-import com.FlipFit.exceptions.CenterNotFoundException;
-import com.FlipFit.exceptions.SlotMismatchException;
-import com.FlipFit.exceptions.WorkoutNotFoundException;
-import com.FlipFit.models.User;
-import com.FlipFit.models.Center;
-import com.FlipFit.models.Slot;
-import com.FlipFit.models.Workout;
+import com.FlipFit.exception.CenterNotFoundException;
+import com.FlipFit.exception.SlotMismatchException;
+import com.FlipFit.exception.WorkoutNotFoundException;
+import com.FlipFit.entity.User;
+import com.FlipFit.entity.Center;
+import com.FlipFit.entity.Slot;
+import com.FlipFit.entity.Workout;
 
 import java.util.ArrayList;
 import java.util.List;

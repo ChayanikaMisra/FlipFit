@@ -1,4 +1,4 @@
-package com.FlipFit.models;
+package com.FlipFit.entity;
 
 public class Workout {
     String type;

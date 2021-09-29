@@ -1,11 +1,11 @@
 package com.FlipFit;
 
-import com.FlipFit.services.FlipFitService;
+import com.FlipFit.service.FlipFitService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DriverClass {
+public class FlipFitApplication {
     public static void main(String[] args) {
         FlipFitService flipFitService = new FlipFitService(new ArrayList<>(), new ArrayList<>());
         flipFitService.register("John");

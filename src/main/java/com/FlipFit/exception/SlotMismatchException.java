@@ -1,4 +1,4 @@
-package com.FlipFit.exceptions;
+package com.FlipFit.exception;
 
 
 public class SlotMismatchException extends Exception {
