@@ -1,13 +1,14 @@
 package com.FlipFit.entity;
 
 public class Slot {
-    int startTime;
-    int endTime;
+    private int startTime;
+    private int endTime;
 
     public Slot(int startTime, int endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
     }
+
 
     public int getStartTime() {
         return startTime;

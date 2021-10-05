@@ -1,23 +1,7 @@
 package com.FlipFit.entity;
 
 public class Workout {
-    String type;
-    Slot slot;
-    int capacity;
-
-    public Workout(String type, Slot slot, int capacity) {
-        this.type = type;
-        this.slot = slot;
-        this.capacity = capacity;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
+    private String type;
 
     public String getType() {
         return type;
@@ -27,11 +11,4 @@ public class Workout {
         this.type = type;
     }
 
-    public Slot getSlot() {
-        return slot;
-    }
-
-    public void setSlot(Slot slot) {
-        this.slot = slot;
-    }
 }

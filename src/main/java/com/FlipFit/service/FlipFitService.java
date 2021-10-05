@@ -9,23 +9,24 @@ import com.FlipFit.entity.Slot;
 import com.FlipFit.entity.Workout;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class FlipFitService {
     private List<User> users;
-    private List<Center> centers;
+    private static List<Center> centers;
 
     public FlipFitService(List<User> users, List<Center> centers) {
         this.users = users;
-        this.centers = centers;
+        FlipFitService.centers = centers;
     }
 
-    public List<Center> getCenters() {
+    public static List<Center> getCenters() {
         return centers;
     }
 
     public void setCenters(List<Center> centers) {
-        this.centers = centers;
+        FlipFitService.centers = centers;
     }
 
     public List<User> getUsers() {
@@ -53,7 +54,7 @@ public class FlipFitService {
     }
 
     public void addCenter(String name) {
-        Center center = new Center(name, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Center center = new Center(name, new HashMap<>(), new ArrayList<>(), new ArrayList<>());
         this.centers.add(center);
         System.out.println("\n\ncenters :");
         for (Center c : this.centers) {
@@ -63,65 +64,65 @@ public class FlipFitService {
 
     }
 
-    public void addCenterTimingsAndWorkouts(String name, int startTime, int endTime, List<String> workoutTypes) {
-        Center center = Center.getCenterByName(this.centers, name);
-        Center.addTimings(center, startTime, endTime);
-        Center.addWorkoutTypes(center, workoutTypes);
-
-    }
-
-    public void addWorkout(String name, String workoutName, int startTime, int endTime, int capacity) {
-        Center center = Center.getCenterByName(this.centers, name);
-
-        Center.addWorkoutToCenter(center, workoutName, startTime, endTime, capacity);
-    }
-
-    public void viewWorkoutAvailability(String workoutName) {
-        System.out.println("\n\nAvailable workouts");
-        for (Center c : this.centers) {
-
-            for (Workout w : c.getWorkouts()) {
-
-                if (w.getType().equals(workoutName)) {
-                    System.out.println(c.getName() + " " + workoutName + " " + w.getSlot().getStartTime() + " " + w.getSlot().getEndTime());
-                }
-            }
-        }
-    }
-
-    public void bookSession(String username, String center, String workoutType, int startTime, int endTime) throws SlotMismatchException, CenterNotFoundException, WorkoutNotFoundException {
-        boolean centerFound = false;
-        boolean workoutFound = false;
-
-        for (Center c : this.centers) {
-            if ((c.getName()).equals(center)) {
-                centerFound = true;
-
-                for (Workout w : c.getWorkouts()) {
-                    if (w.getType().equals(workoutType)) {
-                        workoutFound = true;
-                        Slot s = w.getSlot();
-
-                        if (s.getStartTime() == startTime && s.getEndTime() == endTime) {
-                            System.out.println("booking done");
-                            break;
-                        } else {
-                            throw new SlotMismatchException("slot mismatch");
-                        }
-
-                    }
-
-                }
-
-            }
-        }
-        if (!centerFound) {
-            throw new CenterNotFoundException("center not found");
-        }
-        if (!workoutFound) {
-            throw new WorkoutNotFoundException("workout not found");
-        }
-    }
+//    public void addCenterTimingsAndWorkouts(String name, int startTime, int endTime, List<String> workoutTypes) {
+//        Center center = Center.getCenterByName(this.centers, name);
+//        Center.addTimings(center, startTime, endTime);
+//        Center.addWorkoutTypes(center, workoutTypes);
+//
+//    }
+//
+//    public void addWorkout(String name, String workoutName, int startTime, int endTime, int capacity) {
+//        Center center = Center.getCenterByName(this.centers, name);
+//
+//        Center.addWorkoutToCenter(center, workoutName, startTime, endTime, capacity);
+//    }
+//
+//    public void viewWorkoutAvailability(String workoutName) {
+//        System.out.println("\n\nAvailable workouts");
+//        for (Center c : this.centers) {
+//
+//            for (Workout w : c.getWorkouts()) {
+//
+//                if (w.getType().equals(workoutName)) {
+//                    System.out.println(c.getName() + " " + workoutName + " " + w.getSlot().getStartTime() + " " + w.getSlot().getEndTime());
+//                }
+//            }
+//        }
+//    }
+//
+//    public void bookSession(String username, String center, String workoutType, int startTime, int endTime) throws SlotMismatchException, CenterNotFoundException, WorkoutNotFoundException {
+//        boolean centerFound = false;
+//        boolean workoutFound = false;
+//
+//        for (Center c : this.centers) {
+//            if ((c.getName()).equals(center)) {
+//                centerFound = true;
+//
+//                for (Workout w : c.getWorkouts()) {
+//                    if (w.getType().equals(workoutType)) {
+//                        workoutFound = true;
+//                        Slot s = w.getSlot();
+//
+//                        if (s.getStartTime() == startTime && s.getEndTime() == endTime) {
+//                            System.out.println("booking done");
+//                            break;
+//                        } else {
+//                            throw new SlotMismatchException("slot mismatch");
+//                        }
+//
+//                    }
+//
+//                }
+//
+//            }
+//        }
+//        if (!centerFound) {
+//            throw new CenterNotFoundException("center not found");
+//        }
+//        if (!workoutFound) {
+//            throw new WorkoutNotFoundException("workout not found");
+//        }
+//    }
 
 
 }
