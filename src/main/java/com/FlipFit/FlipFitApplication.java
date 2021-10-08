@@ -2,6 +2,7 @@ package com.FlipFit;
 
 import com.FlipFit.entity.Slot;
 import com.FlipFit.entity.Workout;
+import com.FlipFit.service.BookingService;
 import com.FlipFit.service.CenterManagementService;
 import com.FlipFit.service.FlipFitService;
 
@@ -58,12 +59,23 @@ public class FlipFitApplication {
         int noOfSlots = sc.nextInt();
         List<Slot> slots = new ArrayList<>();
         for (int countSlot = 0; countSlot < noOfSlots; countSlot++) {
-            System.out.print("Slot timings:");
-            int startTime = sc.nextInt();
-            int endTime = sc.nextInt();
-            Slot slot = new Slot(startTime, endTime);
-            slots.add(slot);
-
+            System.out.print("Center Slot timings:");
+            int centerStartTime = sc.nextInt();
+            int centerEndTime = sc.nextInt();
+            int startTime=centerStartTime;
+            int endTime=centerStartTime+1;
+            if(endTime<=startTime)
+            {
+                System.out.println("wrong timings");
+                continue;
+            }
+            while(endTime<centerEndTime)
+            {
+                Slot slot = new Slot(startTime, endTime);
+                slots.add(slot);
+                startTime=endTime;
+                endTime=startTime+1;
+            }
         }
         CenterManagementService.addCenterTimings(centerName, slots);
 
@@ -84,6 +96,19 @@ public class FlipFitApplication {
             CenterManagementService.addWorkout(centerName, startTime, endTime, activityName, capacity);
         }
 
+        System.out.println("view workout availability");
+        System.out.print("Workout name:");
+        String workoutName = sc.next();
+        CenterManagementService.viewWorkoutAvailability(workoutName);
 
+
+        System.out.println("book session");
+        System.out.print("user name:");
+        String userName = sc.next();
+        System.out.print("center name:");
+        centerName = sc.next();
+        System.out.print("workout name:");
+        workoutName = sc.next();
+        BookingService.createBooking(userName,centerName,workoutName);
     }
 }
