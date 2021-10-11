@@ -1,10 +1,11 @@
-package com.FlipFit;
+package com.flipfit;
 
-import com.FlipFit.entity.Slot;
-import com.FlipFit.entity.Workout;
-import com.FlipFit.service.BookingService;
-import com.FlipFit.service.CenterManagementService;
-import com.FlipFit.service.FlipFitService;
+import com.flipfit.entity.Slot;
+import com.flipfit.entity.Workout;
+import com.flipfit.service.BookingService;
+import com.flipfit.service.CenterManagementService;
+import com.flipfit.service.FlipFitService;
+import com.flipfit.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class FlipFitApplication {
         for (int countUser = 0; countUser < noOfUsers; countUser++) {
             System.out.print("enter new user name:");
             String userName = sc.next();
-            flipFitService.register(userName);
+            UserService.registerUser(userName);
         }
 
 

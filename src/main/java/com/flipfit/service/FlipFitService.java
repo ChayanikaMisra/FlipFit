@@ -1,10 +1,9 @@
-package com.FlipFit.service;
+package com.flipfit.service;
 
-import com.FlipFit.entity.Center;
-import com.FlipFit.entity.User;
+import com.flipfit.entity.Center;
+import com.flipfit.entity.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class FlipFitService {
@@ -28,25 +27,11 @@ public class FlipFitService {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public static void setUsers(List<User> users) {
         FlipFitService.users = users;
     }
 
-    public void register(String username) {
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                if (user.getUsername().equals(username)) {
-                    System.out.println("User is already registered");
-                    return;
-                }
-            }
-        }
-        User newUser = new User(username);
-        users.add(newUser);
-        System.out.println("added new user: " + username);
 
-
-    }
 
     public void addCenter(String name) {
         Center center = new Center(name, new ArrayList<>(), new ArrayList<>());

@@ -1,10 +1,9 @@
-package com.FlipFit.service;
+package com.flipfit.service;
 
-import com.FlipFit.entity.Center;
-import com.FlipFit.entity.Slot;
-import com.FlipFit.entity.Workout;
+import com.flipfit.entity.Center;
+import com.flipfit.entity.Slot;
+import com.flipfit.entity.Workout;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class CenterManagementService {

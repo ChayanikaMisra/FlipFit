@@ -1,7 +1,7 @@
-package com.FlipFit.service;
+package com.flipfit.service;
 
-import com.FlipFit.entity.Booking;
-import com.FlipFit.entity.User;
+import com.flipfit.entity.Booking;
+import com.flipfit.entity.User;
 
 import java.util.List;
 
